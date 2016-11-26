@@ -10,11 +10,24 @@
 	</parent>
 
 	<artifactId>com.github.jmodel.api</artifactId>
-	<packaging>jar</packaging>
+	<packaging>eclipse-plugin</packaging>
 
 	<name>jmodel API</name>
 	<url>http://www.github.com/jianni/jmodel</url>
 
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-compiler-plugin</artifactId>
+				<configuration>
+					<compilerArguments>
+						<properties>${project.basedir}/.settings/org.eclipse.jdt.core.prefs</properties>
+					</compilerArguments>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>
 
 

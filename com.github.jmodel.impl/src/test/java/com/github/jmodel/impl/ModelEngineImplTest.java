@@ -17,15 +17,25 @@ public class ModelEngineImplTest {
 
 	private ModelEngine mEngine = ModelEngineFactoryService.getInstance().get();
 
-	private InputStream sourceObj;
+	private Model model;
 
 	@Before
 	public void setUp() throws Exception {
-		sourceObj = getClass().getResourceAsStream("data.json");
+
 	}
 
 	@After
 	public void tearDown() throws Exception {
+
+	}
+
+	@Test
+	public void testConstruct() {
+		InputStream sourceObj = getClass().getResourceAsStream("data.json");
+		model = mEngine.construct(sourceObj, FormatEnum.JSON);
+		if (model == null) {
+			fail("Not yet implemented");
+		}
 		if (sourceObj != null) {
 			try {
 				sourceObj.close();
@@ -34,18 +44,4 @@ public class ModelEngineImplTest {
 			}
 		}
 	}
-
-	@Test
-	public void testConstruct() {
-		Model model = mEngine.construct(sourceObj, FormatEnum.JSON);
-		if (model == null) {
-			fail("Not yet implemented");
-		}
-	}
-
-	@Test
-	public void testFill() {
-		fail("Not yet implemented");
-	}
-
 }

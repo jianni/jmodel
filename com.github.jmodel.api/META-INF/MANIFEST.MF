@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: com.github.jmodel.api
+Bundle-Vendor: jmodel
+Bundle-Version: 0.0.1.qualifier
+Bundle-SymbolicName: com.github.jmodel.api;singleton:=true
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: com.github.jmodel.api

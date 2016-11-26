@@ -84,9 +84,9 @@ public class JsonAnalyzer extends AbstractAnalyzer<JsonNode> {
 			if (nodeName.trim().length() == 0) {
 				sourceModel.setModelPathMap(modelPathMap);
 				sourceModel.setFieldPathMap(fieldPathMap);
-				sourceModel.setName("root");
-				sourceModel.setModelPath("root");
-				sourceModel.getModelPathMap().put("root", sourceModel);
+				sourceModel.setName(sourceModel.getName());
+				sourceModel.setModelPath(sourceModel.getName());
+				sourceModel.getModelPathMap().put(sourceModel.getName(), sourceModel);
 
 				objectNode.fields().forEachRemaining((subNode) -> {
 					if (subNode.getValue().isObject() || subNode.getValue().isArray()) {

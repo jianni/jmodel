@@ -40,7 +40,6 @@
 			<groupId>com.github.jmodel</groupId>
 			<artifactId>com.github.jmodel.api</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
-			<scope>provided</scope>
 		</dependency>
 	</dependencies>
 
