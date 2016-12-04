@@ -8,6 +8,13 @@ public class ModelHelper {
 
 	private final static String BUNDLE_NAME = "com.github.jmodel.api.MessagesBundle";
 
+	public static String getFieldValue(Field field) {
+		if (field == null) {
+			return "";
+		}
+		return field.getValue();
+	}
+
 	public static <T1, T2> String calc(final T1 leftOperant, final T2 rightOperant, final OperationEnum operation,
 			final Locale currentLocale) {
 		ResourceBundle messages = ResourceBundle.getBundle(BUNDLE_NAME, currentLocale);
@@ -19,6 +26,9 @@ public class ModelHelper {
 				return String.valueOf((Integer) leftOperant + (Integer) rightOperant);
 			}
 			return null;
+		}
+		case MULTIPLY: {
+			return String.valueOf(Integer.valueOf((String) leftOperant) * Integer.valueOf((String) rightOperant));
 		}
 		default:
 			throw new IllegalException(
