@@ -13,6 +13,8 @@ public abstract class ModelImpl implements Model {
 
 	private String name;
 
+	private boolean isRecursive;
+
 	private String modelPath;
 
 	private Model parentModel;
@@ -33,6 +35,14 @@ public abstract class ModelImpl implements Model {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public boolean isRecursive() {
+		return isRecursive;
+	}
+
+	public void setRecursive(boolean isRecursive) {
+		this.isRecursive = isRecursive;
 	}
 
 	public String getModelPath() {

@@ -1,12 +1,32 @@
 package com.github.jmodel.api;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class ModelHelper {
 
+	private final static SimpleDateFormat dateFormat = new SimpleDateFormat();
+
 	private final static String BUNDLE_NAME = "com.github.jmodel.api.MessagesBundle";
+
+	public static Date getDate(String fieldValue) {
+		return getDate(fieldValue, null);
+	}
+
+	public static Date getDate(String fieldValue, String pattern) {
+		try {
+			if (pattern == null) {
+				return dateFormat.parse(fieldValue);
+			}
+			return new SimpleDateFormat(pattern).parse(fieldValue);
+		} catch (ParseException e) {
+			throw new IllegalException("failed to parse date string");
+		}
+	}
 
 	public static String getFieldValue(Field field) {
 		if (field == null) {

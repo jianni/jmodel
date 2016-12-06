@@ -33,6 +33,7 @@ public class EntityImpl extends ModelImpl implements Entity {
 		Entity clonedEntity = new EntityImpl();
 
 		clonedEntity.setName(this.getName() + "");
+		clonedEntity.setRecursive(this.isRecursive());
 
 		if (this.getFields() != null) {
 			clonedEntity.setFields(new ArrayList<Field>());

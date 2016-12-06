@@ -12,6 +12,7 @@ public class ArrayImpl extends ModelImpl implements Array {
 	public Model clone() {
 		Array clonedArray = new ArrayImpl();
 		clonedArray.setName(this.getName() + "");
+		clonedArray.setRecursive(this.isRecursive());
 
 		List<Model> subModels = this.getSubModels();
 		if (subModels != null) {

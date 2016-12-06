@@ -8,6 +8,10 @@ public interface Model {
 	public String getName();
 	
 	public void setName(String name);
+	
+	public boolean isRecursive();
+	
+	public void setRecursive(boolean isRecursive);
 
 	public Model getParentModel();
 	
