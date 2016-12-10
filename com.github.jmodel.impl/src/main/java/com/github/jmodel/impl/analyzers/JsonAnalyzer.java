@@ -78,6 +78,7 @@ public class JsonAnalyzer extends AbstractAnalyzer<JsonNode> {
 	@Override
 	protected void buildModel(final Model sourceModel, final Map<String, Field> fieldPathMap,
 			final Map<String, Model> modelPathMap, final String nodeName, final JsonNode node) {
+
 		if (node.isObject()) {
 			final ObjectNode objectNode = (ObjectNode) node;
 
@@ -105,8 +106,14 @@ public class JsonAnalyzer extends AbstractAnalyzer<JsonNode> {
 				final Entity entity = new EntityImpl();
 				entity.setName(nodeName);
 				if (sourceModel instanceof Array) {
-					entity.setModelPath(sourceModel.getModelPath() + "." + entity.getName() + "["
-							+ (sourceModel.getSubModels().size() - 1) + "]");
+					int subModelsCount = sourceModel.getSubModels().size();
+					if (subModelsCount > 0) {
+						entity.setModelPath(
+								sourceModel.getModelPath() + "." + entity.getName() + "[" + (subModelsCount - 1) + "]");
+					} else {
+						entity.setModelPath(
+								sourceModel.getModelPath() + "." + entity.getName() + "[" + subModelsCount + "]");
+					}
 				} else {
 					entity.setModelPath(sourceModel.getModelPath() + "." + entity.getName());
 				}
@@ -134,6 +141,7 @@ public class JsonAnalyzer extends AbstractAnalyzer<JsonNode> {
 			}
 		} else if (node.isArray()) {
 			ArrayNode arrayNode = (ArrayNode) node;
+
 			final Array array = new ArrayImpl();
 			array.setName(nodeName);
 			array.setModelPath(sourceModel.getModelPath() + "." + array.getName() + "[]");

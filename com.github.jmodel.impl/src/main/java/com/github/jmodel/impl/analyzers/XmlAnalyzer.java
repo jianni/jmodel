@@ -101,4 +101,5 @@ public class XmlAnalyzer extends AbstractAnalyzer<Element> {
 		// TODO Auto-generated method stub
 
 	}
+
 }
