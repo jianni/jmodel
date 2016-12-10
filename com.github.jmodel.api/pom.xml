@@ -6,7 +6,7 @@
 		<relativePath>../com.github.jmodel.parent/pom.xml</relativePath>
 		<groupId>com.github.jmodel</groupId>
 		<artifactId>com.github.jmodel.parent</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>0.0.1</version>
 	</parent>
 
 	<artifactId>com.github.jmodel.api</artifactId>

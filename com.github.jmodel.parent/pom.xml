@@ -5,10 +5,27 @@
 
 	<groupId>com.github.jmodel</groupId>
 	<artifactId>com.github.jmodel.parent</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<packaging>pom</packaging>
 
 	<name>jmodel Parent</name>
+
+	<modules>
+		<module>../com.github.jmodel.api</module>
+		<module>../com.github.jmodel.impl</module>
+	</modules>
+
+	<url>https://github.com/jianni/jmodel</url>
+	<description>jmodel provides a simple generic model which is composed
+				of Model (abstract), Entity, Array, Field, along with an extensible
+				analyze framework to parse source object in various formats like
+				JSON, XML, BEAN, or any format you want.  </description>
+
+	<scm>
+		<url>https://github.com/jianni/jmodel.git</url>
+		<connection>scm:git:git@github.com:jianni/jmodel.git</connection>
+		<developerConnection>scm:git:git@github.com:jianni/jmodel.git</developerConnection>
+	</scm>
 
 	<properties>
 		<tycho-version>0.25.0</tycho-version>
@@ -16,7 +33,32 @@
 		<xtext.version>2.9.0</xtext.version>
 		<junit.version>4.12</junit.version>
 		<jdk.version>1.8</jdk.version>
+		<jackson.version>2.6.1</jackson.version>
+		<org.apache.commons.version>3.4</org.apache.commons.version>
+		<maven.compiler.plugin.version>3.5.1</maven.compiler.plugin.version>
+		<maven.source.plugin.version>3.0.1</maven.source.plugin.version>
+
 	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>com.fasterxml.jackson.core</groupId>
+				<artifactId>jackson-core</artifactId>
+				<version>${jackson.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.fasterxml.jackson.core</groupId>
+				<artifactId>jackson-databind</artifactId>
+				<version>${jackson.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-lang3</artifactId>
+				<version>${org.apache.commons.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 
 	<build>
 		<pluginManagement>
@@ -136,7 +178,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
-				<version>3.0.1</version>
+				<version>${maven.source.plugin.version}</version>
 				<executions>
 					<execution>
 						<id>attach-sources</id>
@@ -148,16 +190,13 @@
 			</plugin>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.5.1</version>
+				<version>${maven.compiler.plugin.version}</version>
 				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
+					<source>${jdk.version}</source>
+					<target>${jdk.version}</target>
 				</configuration>
 			</plugin>
 		</plugins>
 	</build>
-	<modules>
-		<module>../com.github.jmodel.api</module>
-		<module>../com.github.jmodel.impl</module>
-	</modules>
+
 </project>
